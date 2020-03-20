@@ -94,7 +94,6 @@ ping -c 3 -o arardc01.ml.com 1> /dev/null 2> /dev/null
 if [[ $? == 0 ]]; then
     domain=$( dsconfigad -show | awk '/Active Directory Domain/{print $NF}' )
     if [[ "$domain" == "ml.com" ]]; then
-        id -u admin_aplicativois
         if [[ $? == 0 ]]; then
             printf "${GR}Esta en AD${NC}\n"
         else
