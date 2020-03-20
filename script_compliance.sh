@@ -6,14 +6,15 @@ OR='\033[0;33m'
 YL='\033[1;33m'
 GY='\033[1;34m'
 NC='\033[0m' # No Color
-host=$1
+user=$(dscl . list /Users | grep -v '_' | grep -v 'daemon' | grep -v 'macadmin' | grep -v 'meliadmin' | grep -v 'mfe' | grep -v 'nobody' | grep -v 'root')
 printf "${NC}Verificando el compliance de la notebook....${NC}\n"
 #Check admin
 #printf "${NC}Verificando Admin: ${NC}"
-if ! [ -x "$(command -v sudo)" ]; then
-    printf "${RED}No es admin${NC}\n"
-else
-    printf "${GR}Es admin${NC}\n"
+if groups $user | grep -q -w admin; 
+then 
+    printf "${GR}Es admin${NC}\n"; 
+else 
+    echo "${RED}No es admin${NC}\n"; 
 fi
 #Check Printers
 #printf "${NC}Verificando Impresoras: "
