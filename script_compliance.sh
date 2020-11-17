@@ -61,19 +61,19 @@ if ! [ -x "$(command -v pgrep mhuntagent)" ]; then
 else
     printf "${GR}Mhunt esta instalado${NC}\n"
 fi
-#Check IVANTI
+#Check HUB WSONE
 #echo "Verificando Ivanti"
-if ! [ -x "$(command -v pgrep Ivanti Agent)" ]; then
-    printf "${RED}Ivanti no esta Instalado${NC}\n"
+if ! [ -x "$(command -v pgrep IntelligentHubAgent)" ]; then
+    printf "${RED}WSONE no esta Instalado${NC}\n"
 else
-    printf "${GR}Ivanti esta Instalado${NC}\n"
+    printf "${GR}WSONE esta Instalado${NC}\n"
 fi
-#Check MCAFEE
+#Check CROWSTRIKE
 #echo "Verificando Mcafee"
-if ! [ -x "$(command -v pgrep masvc)" ]; then
-    printf "${RED}McAfee no esta Instalado${NC}\n"
+if ! [ -x "$(command -v sysctl cs)" ]; then
+    printf "${RED}Crowstrike no esta Instalado${NC}\n"
 else
-    printf "${GR}McAfee esta Instalado${NC}\n"
+    printf "${GR}Crowstrike esta Instalado${NC}\n"
 fi
 #Check GP
 #echo "Verificando Global Protect"
@@ -106,13 +106,43 @@ if [[ $? == 0 ]]; then
 else
     printf "${YL}El DC no esta en rango${NC}\n"
 fi
-#Copiando y pegando las guias
-printf "${OR}Descargando Guias${NC}\n"
-command git clone https://github.com/wilmerjfl/Guias-Primeros-Pasos.git
-printf "${OR}Copiando guia al escritorio${NC}\n"
-command mv ./Guias-Primeros-Pasos/GUIA_VPN.pdf ~/Desktop
-command mv ./Guias-Primeros-Pasos/Guia_de_primeros_pasos.pdf ~/Desktop
-printf "${OR}Borrando carpeta de guias${NC}\n"
-command rm -rf ./Guias-Primeros-Pasos
-
-
+#Check Go
+if ! [ -x "$(command -v go version)"]; then
+    printf "${RED} Go no esta instalado"
+else
+    printf "${GR} Go esta Instalado"
+#Check SDKMan
+if ! [ -x "$(command -v sdk version)"]; then
+    printf "${RED} SDKMan no esta instalado"
+else
+    printf "${GR} SDKMan esta Instalado"
+#Check NPM
+if ! [ -x "$(command -v npm)"]; then
+    printf "${RED} Node no esta instalado"
+else
+    printf "${GR} Node esta Instalado"
+#Check Ruby
+if ! [ -x "$(command -v ruby -v)"]; then
+    printf "${RED} Ruby no esta instalado"
+else
+    printf "${GR} Ruby esta Instalado"
+#Check Maven
+if ! [ -x "$(command -v mvn -version)"]; then
+    printf "${RED} Maven no esta instalado"
+else
+    printf "${GR} Maven esta Instalado"
+#Check Redis
+if ! [ -x "$(command -v redis-cli)"]; then
+    printf "${RED} Redis no esta instalado"
+else
+    printf "${GR} Redis esta Instalado"
+#Check Elasticsearch
+if ! [ -x "$(command -v bin/elasticsearch --version)"]; then
+    printf "${RED} ElasticSearch no esta instalado"
+else
+    printf "${GR} ElasticSearch esta Instalado"
+#Check Kibana
+if ! [ -x "$(command -v ./bin/kibana)"]; then
+    printf "${RED} Kibana no esta instalado"
+else
+    printf "${GR} Kibana esta Instalado"
