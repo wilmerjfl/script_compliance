@@ -108,50 +108,56 @@ else
 fi
 #Check Go
 if ! [ -x "$(command -v go version)" ]; then
-    printf "${RED} Go no esta instalado \n"
+    printf "${RED}Go no esta instalado \n"
 else
-    printf "${GR} Go esta Instalado\n"
+    printf "${GR}Go esta Instalado\n"
 fi
 #Check SDKMan
 sdk=$(command -v sdk version)
 if [ sdk ]; then
-    printf "${GR} SDKMan esta instalado \n"
+    printf "${GR}SDKMan esta instalado \n"
 else
-    printf "${RED} SDKMan no esta Instalado \n"
+    printf "${RED}SDKMan no esta Instalado \n"
 fi
 #Check NPM
 if ! [ -x "$(command -v npm)" ]; then
-    printf "${RED} Node no esta instalado \n"
+    printf "${RED}NPM no esta instalado \n"
 else
-    printf "${GR} Node esta Instalado \n"
+    printf "${GR}NPM esta Instalado \n"
+fi
+#Check Node
+if ! [ -x "$(command -v node --version)" ]; then
+    printf "${RED}Node no esta instalado \n"
+else
+    printf "${GR}Node esta Instalado \n"
 fi
 #Check Ruby
 if ! [ -x "$(command -v ruby -v)" ]; then
-    printf "${RED} Ruby no esta instalado \n"
+    printf "${RED}Ruby no esta instalado \n"
 else
-    printf "${GR} Ruby esta Instalado \n"
+    printf "${GR}Ruby esta Instalado \n"
 fi
 #Check Maven
 if ! [ -x "$(command -v mvn -version)" ]; then
-    printf "${RED} Maven no esta instalado \n"
+    printf "${RED}Maven no esta instalado \n"
 else
-    printf "${GR} Maven esta Instalado \n"
+    printf "${GR}Maven esta Instalado \n"
 fi
 #Check Redis
 if ! [ -x "$(command -v redis-cli)" ]; then
-    printf "${RED} Redis no esta instalado \n"
+    printf "${RED}Redis no esta instalado \n"
 else
-    printf "${GR} Redis esta Instalado \n"
+    printf "${GR}Redis esta Instalado \n"
 fi
 #Check Elasticsearch
 if ! [ -x "$(command -v bin/elasticsearch --version)" ]; then
-    printf "${RED} ElasticSearch no esta instalado \n"
+    printf "${RED}ElasticSearch no esta instalado \n"
 else
-    printf "${GR} ElasticSearch esta Instalado \n"
+    printf "${GR}ElasticSearch esta Instalado \n"
 fi
 #Check Kibana
 if ! [ -x "$(command -v ./bin/kibana)" ]; then
-    printf "${RED} Kibana no esta instalado \n"
+    printf "${RED}Kibana no esta instalado \n"
 else
-    printf "${GR} Kibana esta Instalado \n"
+    printf "${GR}Kibana esta Instalado \n"
 fi
