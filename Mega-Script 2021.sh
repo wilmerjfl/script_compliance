@@ -103,6 +103,7 @@ Install_ITAcc ()
     echo "Installing Discord, Zoom, Github"
     brew install --cask zoom github discord
 
+    nvm install node
 }
 
 ### Funcion menu
