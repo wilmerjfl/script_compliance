@@ -11,7 +11,9 @@ Install_SDKMAN ()
 ### Instalar Dev_Tools
 Dev_Tools ()
 {
-    sdk install java 8.0.242-zulu & \
+    JavaVersion=$(sdk list java|grep "11.*-zulu"|tr -s " "|head -n 1|awk '{ print $8 }')
+    
+    sdk install java $JavaVersion & \
 
     sdk install gradle 3.5 & \
 
@@ -74,9 +76,7 @@ Install_ITAcc ()
     #INSTALLING NVM AND NODE
     curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
     export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-    
-    nvm install node
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && nvm install node || echo "No se instalo Node"
 
     #INSTALLING RVM AND RUBY
     echo "Installing RVM and Ruby"
@@ -99,6 +99,9 @@ Install_ITAcc ()
 
     echo "Downloads VirtualBox"
     curl -o vbox.dmg  https://download.virtualbox.org/virtualbox/6.1.16/VirtualBox-6.1.16-140961-OSX.dmg
+    
+    echo "Installing Discord, Zoom, Github"
+    brew install --cask zoom github discord
 
 }
 
