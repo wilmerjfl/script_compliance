@@ -113,10 +113,11 @@ else
     printf "${GR} Go esta Instalado\n"
 fi
 #Check SDKMan
-if ! [ -x "$(command -v sdk version)" ]; then
-    printf "${RED} SDKMan no esta instalado \n"
+sdk=$(command -v sdk version)
+if [ sdk ]; then
+    printf "${GR} SDKMan esta instalado \n"
 else
-    printf "${GR} SDKMan esta Instalado \n"
+    printf "${RED} SDKMan no esta Instalado \n"
 fi
 #Check NPM
 if ! [ -x "$(command -v npm)" ]; then
