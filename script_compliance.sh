@@ -107,49 +107,49 @@ else
     printf "${YL}El DC no esta en rango${NC}\n"
 fi
 #Check Go
-if ! [ -x "$(command -v go version)"]; then
+if ! [ -x "$(command -v go version)" ]; then
     printf "${RED} Go no esta instalado \n"
 else
     printf "${GR} Go esta Instalado\n"
 fi
 #Check SDKMan
-if ! [ -x "$(command -v sdk version)"]; then
+if ! [ -x "$(command -v sdk version)" ]; then
     printf "${RED} SDKMan no esta instalado \n"
 else
     printf "${GR} SDKMan esta Instalado \n"
 fi
 #Check NPM
-if ! [ -x "$(command -v npm)"]; then
+if ! [ -x "$(command -v npm)" ]; then
     printf "${RED} Node no esta instalado \n"
 else
     printf "${GR} Node esta Instalado \n"
 fi
 #Check Ruby
-if ! [ -x "$(command -v ruby -v)"]; then
+if ! [ -x "$(command -v ruby -v)" ]; then
     printf "${RED} Ruby no esta instalado \n"
 else
     printf "${GR} Ruby esta Instalado \n"
 fi
 #Check Maven
-if ! [ -x "$(command -v mvn -version)"]; then
+if ! [ -x "$(command -v mvn -version)" ]; then
     printf "${RED} Maven no esta instalado \n"
 else
     printf "${GR} Maven esta Instalado \n"
 fi
 #Check Redis
-if ! [ -x "$(command -v redis-cli)"]; then
+if ! [ -x "$(command -v redis-cli)" ]; then
     printf "${RED} Redis no esta instalado \n"
 else
     printf "${GR} Redis esta Instalado \n"
 fi
 #Check Elasticsearch
-if ! [ -x "$(command -v bin/elasticsearch --version)"]; then
+if ! [ -x "$(command -v bin/elasticsearch --version)" ]; then
     printf "${RED} ElasticSearch no esta instalado \n"
 else
     printf "${GR} ElasticSearch esta Instalado \n"
 fi
 #Check Kibana
-if ! [ -x "$(command -v ./bin/kibana)"]; then
+if ! [ -x "$(command -v ./bin/kibana)" ]; then
     printf "${RED} Kibana no esta instalado \n"
 else
     printf "${GR} Kibana esta Instalado \n"
