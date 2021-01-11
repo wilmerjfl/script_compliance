@@ -61,6 +61,9 @@ Install_FuryCLI ()
 ###Install IT Accelertor Env
 Install_ITAcc ()
 {
+    #Install Java jdk 
+    echo "Install JDK Java"
+    brew cask install java11
     #installing Go
     brew install go
     echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.bash_profile 

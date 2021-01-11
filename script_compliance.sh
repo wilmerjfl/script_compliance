@@ -144,13 +144,13 @@ else
     printf "${GR}Maven esta Instalado \n"
 fi
 #Check Redis
-if ! [ -x "$(command -v redis-cli)" ]; then
+if ! [ -x "$(command -v redis-cli)" ]; then #Revisar
     printf "${RED}Redis no esta instalado \n"
 else
     printf "${GR}Redis esta Instalado \n"
 fi
 #Check Elasticsearch
-if ! [ -x "$(command -v bin/elasticsearch --version)" ]; then
+if ! [ -x "$(command -v bin/elasticsearch --version)" ]; then #Revisar Elasticsearch e instalar java jdk btw
     printf "${RED}ElasticSearch no esta instalado \n"
 else
     printf "${GR}ElasticSearch esta Instalado \n"
