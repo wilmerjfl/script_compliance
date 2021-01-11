@@ -108,7 +108,8 @@ Install_ITAcc ()
     brew install --cask zoom github discord
 }
 
-Compliance_Check(){
+Compliance_Check ()
+{
     #Script to check compliance status of a mac
     GR='\033[1;32m'
     RED='\033[1;31m'
@@ -236,7 +237,8 @@ Compliance_Check(){
         printf "${GR}NPM esta Instalado \n"
     fi
     #Check Node
-    nvm install node || printf "${RED} Nvm no esta instalado ${NC}"
+    nvm = $(command -v nvm install node)
+    $nvm || printf "${RED} Nvm no esta instalado \n${NC}"
     if ! [ -x "$(command -v node --version)" ]; then
         printf "${RED}Node no esta instalado \n"
     else
@@ -269,9 +271,9 @@ Compliance_Check(){
     fi
     #Check Kibana
     if ! [ -x "$(command -v kibana)" ]; then
-        printf "${RED}Kibana no esta instalado \n"
+        printf "${RED}Kibana no esta instalado ${NC}\n"
     else
-        printf "${GR}Kibana esta Instalado \n"
+        printf "${GR}Kibana esta Instalado ${NC}\n"
     fi
 }
 ### Funcion menu
@@ -291,7 +293,7 @@ Menu ()
 
 ### Menu Principal
 opc=0
-until [ $opc -eq 6 ]
+until [ $opc -eq 7 ]
 do
     case $opc in
         1)  
