@@ -126,6 +126,7 @@ else
     printf "${GR}NPM esta Instalado \n"
 fi
 #Check Node
+nvm install node || printf "${RED} Nvm no esta instalado ${NC}"
 if ! [ -x "$(command -v node --version)" ]; then
     printf "${RED}Node no esta instalado \n"
 else
@@ -138,7 +139,8 @@ else
     printf "${GR}Ruby esta Instalado \n"
 fi
 #Check Maven
-if ! [ -x "$(command -v mvn -version)" ]; then
+mvn=$(command -v mvn -version)
+if ! [ mvn ]; then
     printf "${RED}Maven no esta instalado \n"
 else
     printf "${GR}Maven esta Instalado \n"
@@ -150,13 +152,13 @@ else
     printf "${GR}Redis esta Instalado \n"
 fi
 #Check Elasticsearch
-if ! [ -x "$(command -v bin/elasticsearch --version)" ]; then #Revisar Elasticsearch e instalar java jdk btw
+if ! [ -x "$(command -v elasticsearch --version)" ]; then #Revisar Elasticsearch e instalar java jdk btw
     printf "${RED}ElasticSearch no esta instalado \n"
 else
     printf "${GR}ElasticSearch esta Instalado \n"
 fi
 #Check Kibana
-if ! [ -x "$(command -v ./bin/kibana)" ]; then
+if ! [ -x "$(command -v kibana)" ]; then
     printf "${RED}Kibana no esta instalado \n"
 else
     printf "${GR}Kibana esta Instalado \n"
