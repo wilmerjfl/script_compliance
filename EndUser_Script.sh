@@ -9,18 +9,21 @@ Install_SDKMAN ()
 }
 
 ### Instalar Dev_Tools
+
 Dev_Tools ()
 {
-    sdk install java 8.0.275-zulu & \
+    JavaVersion=$(sdk list java|grep "8.0.*-zulu"|tr -s " "|head -n 1|awk '{ print $8 }')
+    source ~/.sdkman/bin/sdkman-init.sh
 
-    sdk install gradle 3.5 & \
+    sdk install java ${JavaVersion} && \
 
-    sdk install maven 3.5.4 & \
+    sdk install gradle 3.5 && \
+
+    sdk install maven 3.5.4 && \
 
     sdk install grails 2.5.3 && \
 
-    sdk install grails 2.5.4 
-
+    no | sdk install grails 2.5.4 
 }
 
 ### Instalar HomeBrew
@@ -32,23 +35,23 @@ Install_Homebrew ()
 ### Instalar Python3
 Install_Python3 ()
 {
-    brew update
-    brew install python@3.8
-
+    brew install python3@3.8
 }
 
 ### Instalar FuryCLI
 Install_FuryCLI ()
 {
     pip3 install --user -i http://pypi.ml.com/simple/ furycli --trusted-host pypi.ml.com --upgrade --no-warn-script-location && \
-    
-    echo '#Added by furycli:' >> ~/.zshrc
-    echo "export PATH=\"/Users/$USER/Library/Python/3.8/bin:\$PATH\"" >> ~/.zshrc
-    ln -sf /Users/$USER/Library/Python/3.7/bin/fury /usr/local/bin
-    ln -sf /Users/$USER/Library/Python/3.8/bin/fury /usr/local/bin
-    ln -sf /Users/$USER/Library/Python/3.9/bin/fury /usr/local/bin
 
-    source ~/.zshrc && \
+    if [[ `python3 -V | cut -d " " -f 2 | cut -c 1-3` == 3.8 ]]; then
+        echo '#Added by furycli:' >> ~/.zshrc
+        echo "export PATH=\"/Users/$USER/Library/Python/3.8/bin:\$PATH\"" >> ~/.zshrc
+    else
+        echo '#Added by furycli:' >> ~/.zshrc
+        echo "export PATH=\"/Users/$USER/Library/Python/3.7/bin:\$PATH\"" >> ~/.zshrc
+    fi
+
+    source ~/.zshrc; source ~/.bash_profile && \
 
     fury version # Para validar instalacion de furycli
     if [[ "$?" == 0 ]];

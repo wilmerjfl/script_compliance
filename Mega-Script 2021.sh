@@ -238,7 +238,7 @@ Compliance_Check ()
     fi
     #Check Node
     nvm = $(command -v nvm install node)
-    $nvm || printf "${RED} Nvm no esta instalado \n${NC}"
+    $nvm >/dev/null 2>&1
     if ! [ -x "$(command -v node --version)" ]; then
         printf "${RED}Node no esta instalado \n"
     else
