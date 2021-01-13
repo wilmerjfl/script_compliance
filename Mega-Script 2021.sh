@@ -286,14 +286,15 @@ Menu ()
 	echo "  4) Instalar Python3"
 	echo "  5) Instalar Furycli"
     echo "  6) Check BootcampIT"
-	echo "  7) Salir"
+	echo "  7) Instalar Extras Bootcamp IT"
+    echo "  8) Salir"
 	echo ""
 	echo "Indica una opcion:  "
 }
 
 ### Menu Principal
 opc=0
-until [ $opc -eq 7 ]
+until [ $opc -eq 8 ]
 do
     case $opc in
         1)  
@@ -325,6 +326,10 @@ do
         6) 
             Compliance_Check
             Menu
+            ;;
+        7) Install_ITAcc
+           Compliance_Check
+           Menu
             ;;
         *)
             Menu
