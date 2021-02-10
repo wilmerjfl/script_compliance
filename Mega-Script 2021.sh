@@ -91,11 +91,11 @@ Install_ITAcc ()
     #installing KIBANA AND ELASTIC SEARCH
     echo "Installing Kibana Full"
     brew tap elastic/tap
-    brew install elastic/tap/kibana-full
+    brew install elastic/tap/kibana
 
     ##
     echo "Installing Elastic Search"
-    brew install elastic/tap/elasticsearch-full
+    brew install elastic/tap/elasticsearch
 
     ##installing redis
     echo "Installing REDIS"
