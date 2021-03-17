@@ -41,7 +41,7 @@ Install_Python3 ()
 ### Instalar FuryCLI
 Install_FuryCLI ()
 {
-    pip3 install --user -i http://pypi.ml.com/simple/ furycli --trusted-host pypi.ml.com --upgrade --no-warn-script-location && \
+    pip3 install --user -i https://pypi.artifacts.furycloud.io/ furycli --upgrade --no-warn-script-location && \
     
     echo '#Added by furycli:' >> ~/.zshrc
     echo "export PATH=\"/Users/$USER/Library/Python/3.7/bin:\$PATH\"" >> ~/.zshrc
