@@ -43,17 +43,8 @@ Install_FuryCLI ()
 {
     pip3 install --user -i https://pypi.artifacts.furycloud.io/ furycli --upgrade --no-warn-script-location && \
 
-    if [[ `python3 -V | cut -d " " -f 2 | cut -c 1-3` == 3.8 ]]; then
-        echo '#Added by furycli:' >> ~/.zshrc
-        echo "export PATH=\"/Users/$USER/Library/Python/3.8/bin:\$PATH\"" >> ~/.zshrc
-    else
-        echo '#Added by furycli:' >> ~/.zshrc
-        echo "export PATH=\"/Users/$USER/Library/Python/3.7/bin:\$PATH\"" >> ~/.zshrc
-    fi
-    ln -sf /Users/$USER/Library/Python/3.7/bin/fury /usr/local/bin
-    ln -sf /Users/$USER/Library/Python/3.8/bin/fury /usr/local/bin
-    ln -sf /Users/$USER/Library/Python/3.9/bin/fury /usr/local/bin
-    source ~/.zshrc; source ~/.bash_profile && \
+    PYTHON_VERSION=`python3 -V | cut -d " " -f 2 | cut -c 1-3`
+    ln -sf /Users/$USER/Library/Python/$PYTHON_VERSION/bin/fury /usr/local/bin
 
     fury version # Para validar instalacion de furycli
     if [[ "$?" == 0 ]];

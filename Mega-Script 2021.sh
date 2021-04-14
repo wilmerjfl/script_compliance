@@ -43,12 +43,8 @@ Install_FuryCLI ()
 {
     pip3 install --user -i https://pypi.artifacts.furycloud.io/ furycli --upgrade --no-warn-script-location && \
     
-    echo '#Added by furycli:' >> ~/.zshrc
-    echo "export PATH=\"/Users/$USER/Library/Python/3.7/bin:\$PATH\"" >> ~/.zshrc
-    ln -sf /Users/$USER/Library/Python/3.7/bin/fury /usr/local/bin
-    ln -sf /Users/$USER/Library/Python/3.8/bin/fury /usr/local/bin
-    ln -sf /Users/$USER/Library/Python/3.9/bin/fury /usr/local/bin
-    source ~/.zshrc && \
+    PYTHON_VERSION=`python3 -V | cut -d " " -f 2 | cut -c 1-3`
+    ln -sf /Users/$USER/Library/Python/$PYTHON_VERSION/bin/fury /usr/local/bin
 
     fury version # Para validar instalacion de furycli
     if [[ "$?" == 0 ]];
@@ -104,8 +100,14 @@ Install_ITAcc ()
     echo "Downloads VirtualBox"
     curl -o vbox.dmg  https://download.virtualbox.org/virtualbox/6.1.16/VirtualBox-6.1.16-140961-OSX.dmg
     
-    echo "Installing Discord, Zoom, Github"
-    brew install --cask zoom github discord
+    echo "Installing Discord"
+    brew install --cask discord
+
+    echo "Installing Zoom"
+    brew install --cask zoom
+
+    echo "Installing Github"
+    brew install --cask github
 }
 
 Compliance_Check ()
@@ -274,6 +276,30 @@ Compliance_Check ()
         printf "${RED}Kibana no esta instalado ${NC}\n"
     else
         printf "${GR}Kibana esta Instalado ${NC}\n"
+    fi
+
+    #check zoom
+    ls /Applications | grep -i zoom > /dev/null
+    if ! [ "$?" == 0 ]; then
+        printf "${RED}Zoom no esta instalado${NC}\n"
+    else
+        printf "${GR}Zoom esta instalado${NC}\n"
+    fi
+
+    #check Github
+    ls /Applications | grep -i github > /dev/null
+    if ! [ "$?" == 0 ]; then
+        printf "${RED}Github no esta instalado${NC}\n"
+    else
+        printf "${GR}Github esta instalado${NC}\n"
+    fi
+
+    #check discord
+    ls /Applications | grep -i discord > /dev/null
+    if ! [ "$?" == 0 ]; then
+        printf "${RED}Discord no esta instalado${NC}\n"
+    else
+        printf "${GR}Discord esta instalado${NC}\n"
     fi
 }
 ### Funcion menu
